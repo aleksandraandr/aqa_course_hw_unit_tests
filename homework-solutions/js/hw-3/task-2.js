@@ -4,3 +4,8 @@
 n + nn + nnn, где n не перемножаются, а конкатенируются
 
 */
+
+//шаблонные строки (template literals) -> спасибо, Толя, за статьи на linkedIn!
+let n = 3;
+let result = Number(n) + Number(`${n}${n}`) + Number(`${n}${n}${n}`);
+console.log(result);
