@@ -4,7 +4,11 @@
 */
 
 function isPalindrom(word) {
-  // Ваш код
+  if (typeof word !== 'string') return false;
+  if (word === '') return true;
+  const lowerCaseWord = word.toLowerCase();
+  const reversedWord = lowerCaseWord.split('').reverse().join('');
+  return lowerCaseWord === reversedWord;
 }
 
 /*
@@ -15,7 +19,22 @@ function isPalindrom(word) {
 */
 
 function findLongestWords(sentence) {
-  // Ваш код
+  if (typeof sentence !== 'string') return [];
+  if (sentence.trim() === '') return [];
+  const words = sentence.split(' ');
+  let maxLength = 0;
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > maxLength) {
+      maxLength = words[i].length;
+    }
+  }
+  const longestWords = [];
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length === maxLength) {
+      longestWords.push(words[i]);
+    }
+  }
+  return longestWords;
 }
 
 export { isPalindrom, findLongestWords };
