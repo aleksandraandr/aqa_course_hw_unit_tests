@@ -7,7 +7,13 @@
 */
 
 function findMissingNumber(numbers) {
-  // Ваш код
+  const size = numbers.length + 1;
+  let expectedSum = 0;
+  for (let i = 1; i <= size; i++) {
+    expectedSum += i;
+  }
+  const actualSum = numbers.reduce((accumulator, num) => accumulator + num, 0);
+  return expectedSum - actualSum;
 }
 
 export { findMissingNumber };
