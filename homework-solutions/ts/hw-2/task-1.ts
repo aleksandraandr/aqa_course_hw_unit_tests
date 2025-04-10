@@ -59,9 +59,19 @@ const qaRecord: QaRecord = {
 
 // 11. Создайте дженерик функцию getLastElement, которая принимает массив элементов типа T, и возвращает последний элемент (типа T).
 
-    function getLastItem<T>(array: T[]): T {
-      return array[array.length - 1];
+    function getLastItem<T>(array: T[]): T | undefined {
+      return array.length ? array[array.length - 1] : undefined;
     }
 
-    console.log(getLastItem([1, 2, 3, 4])); // 4
-    console.log(getLastItem(['a', 'b', 'c'])); // 'c'
+    const nums = [10, 20, 30];
+    const lastNum = getLastItem(nums);
+    console.log(lastNum);
+
+    const emptyNumbers: number[] = [];
+    const last = getLastItem(emptyNumbers);
+    console.log(last);
+
+    const words = ['TypeScript', 'is', 'fun'];
+    const lastWord = getLastItem(words);
+    console.log(lastWord);
+

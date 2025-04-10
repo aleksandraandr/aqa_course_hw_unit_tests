@@ -20,6 +20,10 @@
 //       Реализовывать метод getDetails(), который должен выводить полную информацию об объекте вида:
 //         'My name is Elena TSovna, I am software developer with 6 years of experience in TypeScript and 6000$ salary' (пример для девелопера)
 
+// Вынесла union types в отдельные типы ProgrammingLanguage и ProjectMethodology
+type ProgrammingLanguage = 'js' | 'ts' | 'java' | 'python';
+type ProjectMethodology = 'scrum' | 'kanban';
+
 interface IPerson {
     name: string;
     surname: string;
@@ -48,9 +52,9 @@ abstract class Employee implements IPerson {
 }
 
 class Manager extends Employee {
-    prefered: 'scrum' | 'kanban';
+    prefered: ProjectMethodology;
 
-    constructor(name: string, surname: string, experienceYears: number, prefered: 'scrum' | 'kanban') {
+    constructor(name: string, surname: string, experienceYears: number, prefered: ProjectMethodology) {
         super(name, surname, experienceYears);
         this.prefered = prefered;
     }
@@ -63,9 +67,9 @@ class Manager extends Employee {
 }
 
 class Developer extends Employee {
-    programmingLanguage: 'js' | 'ts' | 'java' | 'python';
+    programmingLanguage: ProgrammingLanguage;
 
-    constructor(name: string, surname: string, experienceYears: number, programmingLanguage: 'js' | 'ts' | 'java' | 'python') {
+    constructor(name: string, surname: string, experienceYears: number, programmingLanguage: ProgrammingLanguage) {
         super(name, surname, experienceYears);
         this.programmingLanguage = programmingLanguage;
     }
